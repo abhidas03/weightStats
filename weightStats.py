@@ -3,6 +3,7 @@ import calendarDict
 file = open("weights.txt", "r")
 
 monthYears = []
+monthObjects = []
 currentM = ""
 for line in file:
   if (line[0] != "#"):
@@ -19,6 +20,7 @@ for line in file:
       print(currentM,  end="")
       monthYears.append(monthYear)
       currentM = Month(month, year)
+      monthObjects.append(currentM)
     currentM.updateDaysRecorded()
     currentM.addToAverage(weight)
 

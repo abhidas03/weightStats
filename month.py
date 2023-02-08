@@ -9,11 +9,11 @@ class Month:
 
     def __str__(self):
         return (
-            f"Your average for {calendarDict.calendar[self.month]} {self.year} is {self.average}.\n" 
+            f"Your average for {calendarDict.calendar[self.month]} {self.year} is {round(self.average, 1)}.\n" 
         )
         
     def getAverage(self):
-        return self.average
+        return round(self.average, 1)
 
     def getMonth(self):
         return self.month
@@ -28,5 +28,8 @@ class Month:
 
     def updateDaysRecorded(self):
         self.daysRecorded += 1
+
+    def findChange(self, nextMonth):
+        return nextMonth.getAverage() - self.average 
         
     
