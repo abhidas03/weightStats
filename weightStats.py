@@ -1,10 +1,9 @@
 from month import Month
 import calendarDict
 file = open("weights.txt", "r")
-writeFile = open("yourStats.txt", "w")
 
-months = []
-currentM = Month("01", "1776")
+monthYears = []
+currentM = ""
 for line in file:
   if (line[0] != "#"):
     data = line.split()
@@ -16,13 +15,12 @@ for line in file:
     weight = float(weight)
 
     monthYear = calendarDict.calendar[month] + " " + year
-    if ((monthYear) not in months):
-      if(currentM.getYear() != "1776"):
-        print(currentM)
-        months.append(monthYear)
+    if ((monthYear) not in monthYears):
+      print(currentM,  end="")
+      monthYears.append(monthYear)
       currentM = Month(month, year)
     currentM.updateDaysRecorded()
     currentM.addToAverage(weight)
 
+print(currentM)
 file.close()
-writeFile.close()

@@ -9,7 +9,7 @@ class Month:
 
     def __str__(self):
         return (
-            f"Your average for {calendarDict.calendar[self.month]} {self.year} is {self.average}." 
+            f"Your average for {calendarDict.calendar[self.month]} {self.year} is {self.average}.\n" 
         )
         
     def getAverage(self):
